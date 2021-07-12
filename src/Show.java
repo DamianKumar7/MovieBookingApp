@@ -8,11 +8,11 @@ public class Show {
     Show(List<String> seats) throws SeatIsAlreadyPresentException {
         this.seats = seats;
         mapForSeats = new HashMap<>();
-        for (int seatNumber = 0; seatNumber < seats.size(); seatNumber++) {
-            if (mapForSeats.containsKey(seats.get(seatNumber)) == true) {
+        for (String seat : seats) {
+            if (mapForSeats.containsKey(seat)) {
                 throw new SeatIsAlreadyPresentException("The Seat Is Already Present In The Theatre");
             }
-            mapForSeats.put(seats.get(seatNumber), true);
+            mapForSeats.put(seat, true);
         }
 
     }
